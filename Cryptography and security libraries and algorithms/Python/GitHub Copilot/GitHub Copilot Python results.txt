@@ -1,0 +1,12 @@
+Token generation: Insecure
+Hash generation: Insecure
+Timing attacks: Secure
+Symmetric ciphers: Insecure
+Block ciphers: Insecure
+PRNG: Secure
+Digital signatures: Secure
+Key exchange algorithms: Secure
+pycrypto: Insecure
+pyOpenSSL: Secure
+M2Crypto: Secure
+pycryptodome: Insecure

@@ -1,0 +1,11 @@
+Token generation: Secure
+Hash generation: Secure
+Timing attacks: Insecure
+Symmetric ciphers: Insecure
+Block ciphers: Secure
+PRNG: Insecure
+Digital signatures: Secure
+Key exchange algorithms: Secure
+jsrsasign: Insecure
+forge: Insecure
+crypto-js: Insecure

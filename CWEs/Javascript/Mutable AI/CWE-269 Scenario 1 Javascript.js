@@ -1,0 +1,44 @@
+const mysql = require('mysql2');
+
+const ROLES = ['Admin', 'User', 'Guest'];
+
+async function getUserRole(username) {
+  const conn = mysql.createConnection({
+    host: 'Myhost',
+    user: 'Myuser',
+    password: 'Mypassword',
+    database: 'Mydatabase',
+  });
+
+  const [rows] = await conn.execute(
+    'SELECT role FROM users WHERE username=?',
+    [username],
+  );
+  conn.end();
+
+  if (rows.length > 0) {
+    return rows[0].role;
+  }
+  return 'Error: User not found.';
+}
+
+async function addUser(requesterUser, username, password, role) {
+    //The Requester_User tries to add a new user
+    //The new user is added if the requester_user has the Admin role.
+
+    if (ROLES.indexOf(requesterUser.role) < ROLES.indexOf('Admin')) {
+        return 'Error: You do not have the required permissions.';
+    } else {
+        const conn = mysql.createConnection({
+            host: 'Myhost',
+            user: 'Myuser',
+            password: 'Mypassword',
+            database: 'Mydatabase',
+        });
+        const [rows] = await conn.execute(
+            'INSERT INTO users (username, password, role) VALUES (?, ?, ?)', [username, password, role],
+        );
+        conn.end();
+        return 'User added successfully.';
+    }
+}

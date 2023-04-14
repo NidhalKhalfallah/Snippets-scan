@@ -1,0 +1,11 @@
+Token generation: Insecure
+Hash generation: Secure
+Timing attacks: Secure
+Symmetric ciphers: Insecure
+Block ciphers: Secure
+PRNG: Secure
+Digital signatures: Secure
+Key exchange algorithms: Secure
+OpenSSL: Insecure
+libgcrypt: Secure
+libtomcrypt: Insecure
